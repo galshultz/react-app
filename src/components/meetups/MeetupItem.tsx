@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import classes from './MeetupItem.module.css'
 import Card from '../ui/Card';
 import FavouritesContext from '../../store/favourites-context';
@@ -30,6 +31,12 @@ function MeetupItem (props: Props) {
             })
         }
     }
+
+    const navigate = useNavigate()
+    const toShareMeetup = () => {
+        navigate('/sharemeetup', {state: props})
+    }
+
     return <li className={classes.item}>
         <Card>
         <div className={classes.image}>
@@ -42,6 +49,9 @@ function MeetupItem (props: Props) {
         </div>
         <div className={classes.actions}>
             <button onClick={toggleFavouritesStatusHandler}>{isItemFavourite ? "Remove From Favourites" : "Add To Favourites"}</button>
+        </div>
+        <div className={classes.actions}>
+        <button onClick={() => toShareMeetup()}>Share this meetup</button>
         </div>
         </Card>
     </li>
