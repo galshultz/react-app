@@ -7,7 +7,7 @@ This application will enable you to create and save meetups using react and type
 Make sure you have [Node.js](http://nodejs.org/) installed.
 
 ```sh
-$ cd react-meetup
+$ cd to the react-meetup folder
 $ npm install
 $ npm start
 ```
